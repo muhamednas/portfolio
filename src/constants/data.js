@@ -109,13 +109,13 @@ export const EDUCATION = [
 ];
 
 export const CERTIFICATIONS = [
-  { name: "What is Data Science?", issuer: "IBM / Coursera", category: "Foundations", image: "/portfolio/certs/what-is-data-science.jpg" },
-  { name: "Foundations of Data Science", issuer: "Google", category: "Foundations", image: "/portfolio/certs/foundations-of-data-science.jpg" },
-  { name: "Foundations: Data, Data, Everywhere", issuer: "Google", category: "Foundations", image: "/portfolio/certs/data-data-everywhere.jpg" },
-  { name: "Develop Generative AI Applications: Get Started", issuer: "IBM", category: "Generative AI", image: "/portfolio/certs/genai-get-started.jpg" },
-  { name: "Start Writing Prompts like a Pro", issuer: "Udemy", category: "Prompt Engineering", image: "/portfolio/certs/prompts-like-a-pro.jpg" },
-  { name: "LangChain for LLM Application Development", issuer: "DeepLearning.AI", category: "AI Engineering", image: "/portfolio/certs/langchain-llm.jpg" },
-  { name: "Generative AI for Web Developers", issuer: "LinkedIn Learning", category: "AI Engineering", image: "/portfolio/certs/genai-web-devs.jpg" },
+  { name: "What is Data Science?", issuer: "IBM / Coursera", category: "Foundations", image: "/portfolio/certs/what-is-data-science.jpeg" },
+  { name: "Foundations of Data Science", issuer: "Google", category: "Foundations", image: "/portfolio/certs/foundations-of-data-science.jpeg" },
+  { name: "Foundations: Data, Data, Everywhere", issuer: "Google", category: "Foundations", image: "/portfolio/certs/data-data-everywhere.jpeg" },
+  { name: "Develop Generative AI Applications: Get Started", issuer: "IBM", category: "Generative AI", image: "/portfolio/certs/genai-get-started.jpeg" },
+  { name: "Start Writing Prompts like a Pro", issuer: "Udemy", category: "Prompt Engineering", image: "/portfolio/certs/prompts-like-a-pro.jpeg" },
+  { name: "Generative AI for Web Developers", issuer: "LinkedIn Learning", category: "AI Engineering", image: "/portfolio/certs/genai-web-devs.jpeg" },
+  { name: "Prompt Work Task", issuer: "Udemy", category: "Prompt Engineering", image: "/portfolio/certs/prompt-work-task.jpeg" },
 ];
 
 export const SKILL_GROUPS = [

@@ -19,7 +19,7 @@ export const PROFILE = {
   linkedin: "https://www.linkedin.com/in/muhamadns44",
   github: "https://github.com/muhamadns44",
   bio: "Currently at KDU, bridging the gap between raw data and agentic automation. Building RAG pipelines, smart retail systems, and AI-driven solutions with a focus on real-world impact.",
-  photo: "/profile.jpeg"
+  photo: "/portfolio/profile.jpeg"
 };
 
 export const PROJECTS = [

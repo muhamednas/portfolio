@@ -127,7 +127,7 @@ export const EDUCATION = [
 ];
 
 export const CERTIFICATIONS = [
-  { name: "Champions -- Data Odyssey Inter Faculty Exhibition Competition 2025", issuer: "AI and Data Science Club, KDU", category: "Achievement", image: "/portfolio/certs/data-odyssey-2025.jpeg" },
+  { name: "Champions -- Data Odyssey Inter Faculty Exhibition Competition 2025", issuer: "AI and Data Science Club, KDU", category: "Achievement", image: "/portfolio/certs/data_odyssey_champions.jpeg" },
   { name: "What is Data Science?", issuer: "IBM / Coursera", category: "Foundations", image: "/portfolio/certs/what-is-data-science.jpeg" },
   { name: "Foundations of Data Science", issuer: "Google", category: "Foundations", image: "/portfolio/certs/foundations-of-data-science.jpeg" },
   { name: "Foundations: Data, Data, Everywhere", issuer: "Google", category: "Foundations", image: "/portfolio/certs/data-data-everywhere.jpeg" },

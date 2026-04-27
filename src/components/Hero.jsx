@@ -28,6 +28,7 @@ export default function Hero({ isDark }) {
               Available for opportunities
             </span>
           </motion.div>
+
           <motion.h1 variants={item} className={"font-black tracking-tighter leading-tight text-6xl md:text-7xl mb-6 " + (isDark ? "text-white" : "text-slate-900")}>
             <span className="block italic font-light">Hey, I am</span>
             <span className="block">
@@ -35,15 +36,27 @@ export default function Hero({ isDark }) {
               <span className={isDark ? "text-white" : "text-slate-900"}>.</span>
             </span>
           </motion.h1>
+
           <motion.div variants={item}>
             <Typewriter isDark={isDark} />
           </motion.div>
+
           <motion.p variants={item} className={"text-base md:text-lg mb-10 max-w-xl leading-relaxed " + (isDark ? "text-slate-400" : "text-slate-500")}>
             {PROFILE.bio}
           </motion.p>
+
           <motion.div variants={item} className="flex flex-wrap gap-3">
             <a href="#work" className="px-7 py-4 rounded-full font-semibold text-sm bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white hover:shadow-2xl transition-all flex items-center gap-2">
               See my work <ArrowUpRight size={16} />
+            </a>
+            <a      
+              href="/portfolio/MohamedNasir_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className={"flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-sm transition-all " + (isDark ? "bg-white/5 text-white border border-white/10 hover:bg-white/10" : "bg-slate-900/5 text-slate-900 border border-slate-900/10 hover:bg-slate-900/15")}
+            >
+              Download CV
             </a>
             <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className={"flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-sm " + (isDark ? "bg-white/5 text-white border border-white/10" : "bg-slate-900/5 text-slate-900 border border-slate-900/10")}>
               <Github size={16} /> GitHub
@@ -52,10 +65,12 @@ export default function Hero({ isDark }) {
               <Linkedin size={16} /> LinkedIn
             </a>
           </motion.div>
+
           <motion.div variants={item}>
             <AnimatedStats isDark={isDark} />
           </motion.div>
         </motion.div>
+
         <motion.div initial={{ opacity: 0, scale: 0.9, y: 30 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-400 rounded-[2rem] blur-2xl opacity-40 animate-pulse"></div>

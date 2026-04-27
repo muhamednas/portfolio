@@ -49,7 +49,7 @@ export const PROJECTS = [
     name: "CartConnect",
     description: "Smart supermarket cart with autonomous pathfinding to direct users to specific items via a tablet interface. Features an intelligent recommendation system and automated weight-based billing, reducing shopping time and enhancing the customer journey from entry to exit.",
     techStack: ["Arduino", "Python", "Streamlit"],
-    githubUrl: "https://1drv.ms/f/your-onedrive-link",
+    githubUrl: "#",
     category: "Embedded AI System",
     type: "Group Project",
     accent: "pink"

@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const roles = [
   "Data Science Student",
@@ -6,10 +7,10 @@ const roles = [
   "RAG Pipeline Engineer",
   "LangChain Developer",
   "Retail Automation Builder",
-  "Problem Solver"
 ];
 
-export default function Typewriter({ isDark }) {
+export default function Typewriter() {
+  const { isDark } = useTheme();
   const [text, setText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);

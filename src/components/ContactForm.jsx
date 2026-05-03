@@ -1,14 +1,15 @@
-﻿import { useState } from "react";
+import { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
+import { PROFILE } from "../constants/data";
 
 const FORMSPREE_URL = "https://formspree.io/f/xlgakwzp";
 
-export default function ContactForm({ isDark }) {
+export default function ContactForm() {
+  const { isDark } = useTheme();
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [status, setStatus] = useState("idle");
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ export default function ContactForm({ isDark }) {
     try {
       const res = await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(form)
       });
       if (res.ok) {
@@ -62,35 +63,18 @@ export default function ContactForm({ isDark }) {
     }}>
       <div style={{ marginBottom: "1.5rem" }}>
         <div style={{
-          fontSize: "0.7rem",
-          fontWeight: "700",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
-          color: isDark ? "#a78bfa" : "#7c3aed",
-          marginBottom: "0.5rem",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem"
+          fontSize: "0.7rem", fontWeight: "700", letterSpacing: "0.2em",
+          textTransform: "uppercase", color: isDark ? "#a78bfa" : "#7c3aed",
+          marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem"
         }}>
           <span style={{ width: "2rem", height: "1px", background: "currentColor", display: "inline-block" }} />
           Work with me
         </div>
-        <h3 style={{
-          fontSize: "1.8rem",
-          fontWeight: "900",
-          color: isDark ? "white" : "#0f172a",
-          margin: 0,
-          lineHeight: 1.1
-        }}>
+        <h3 style={{ fontSize: "1.8rem", fontWeight: "900", color: isDark ? "white" : "#0f172a", margin: 0, lineHeight: 1.1 }}>
           Leave your details
         </h3>
-        <p style={{
-          fontSize: "0.9rem",
-          color: isDark ? "rgba(148,163,184,1)" : "rgba(71,85,105,1)",
-          marginTop: "0.5rem",
-          marginBottom: 0
-        }}>
-          Collaborators, companies, or anyone interested — drop your info and I will get back to you.
+        <p style={{ fontSize: "0.9rem", color: isDark ? "rgba(148,163,184,1)" : "rgba(71,85,105,1)", marginTop: "0.5rem", marginBottom: 0 }}>
+          Collaborators, companies, or anyone interested — drop your info and I'll get back to you.
         </p>
       </div>
 
@@ -117,46 +101,25 @@ export default function ContactForm({ isDark }) {
         </div>
 
         <button type="submit" disabled={status === "loading"} style={{
-          padding: "0.9rem 2rem",
-          borderRadius: "999px",
-          border: "none",
-          background: "linear-gradient(135deg, #7c3aed, #ec4899)",
-          color: "white",
-          fontWeight: "700",
-          fontSize: "0.9rem",
+          padding: "0.9rem 2rem", borderRadius: "999px", border: "none",
+          background: "linear-gradient(135deg, #7c3aed, #ec4899)", color: "white",
+          fontWeight: "700", fontSize: "0.9rem",
           cursor: status === "loading" ? "not-allowed" : "pointer",
           opacity: status === "loading" ? 0.7 : 1,
-          alignSelf: "flex-start",
-          fontFamily: "inherit"
+          alignSelf: "flex-start", fontFamily: "inherit"
         }}>
           {status === "loading" ? "Sending..." : "Send Message"}
         </button>
 
         {status === "success" && (
-          <div style={{
-            padding: "0.75rem 1rem",
-            borderRadius: "0.75rem",
-            background: "rgba(34,197,94,0.1)",
-            border: "1px solid rgba(34,197,94,0.3)",
-            color: "#22c55e",
-            fontSize: "0.85rem",
-            fontWeight: "600"
-          }}>
-            Message sent! I will get back to you soon.
+          <div style={{ padding: "0.75rem 1rem", borderRadius: "0.75rem", background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", color: "#22c55e", fontSize: "0.85rem", fontWeight: "600" }}>
+            Message sent! I'll get back to you soon.
           </div>
         )}
 
         {status === "error" && (
-          <div style={{
-            padding: "0.75rem 1rem",
-            borderRadius: "0.75rem",
-            background: "rgba(239,68,68,0.1)",
-            border: "1px solid rgba(239,68,68,0.3)",
-            color: "#ef4444",
-            fontSize: "0.85rem",
-            fontWeight: "600"
-          }}>
-            Something went wrong. Email me directly at muhammed01n@gmail.com
+          <div style={{ padding: "0.75rem 1rem", borderRadius: "0.75rem", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", color: "#ef4444", fontSize: "0.85rem", fontWeight: "600" }}>
+            Something went wrong. Email me directly at {PROFILE.email}
           </div>
         )}
       </form>

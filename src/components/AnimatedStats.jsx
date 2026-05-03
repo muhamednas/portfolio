@@ -1,4 +1,5 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 function useCountUp(target, duration, start) {
   const [count, setCount] = useState(0);
@@ -18,7 +19,8 @@ function useCountUp(target, duration, start) {
   return count;
 }
 
-function StatItem({ value, label, isDark, start }) {
+function StatItem({ value, label, start }) {
+  const { isDark } = useTheme();
   const numericValue = parseInt(value);
   const suffix = value.replace(/[0-9]/g, "");
   const count = useCountUp(numericValue, 1800, start);
@@ -50,7 +52,7 @@ function StatItem({ value, label, isDark, start }) {
   );
 }
 
-export default function AnimatedStats({ isDark }) {
+export default function AnimatedStats() {
   const [started, setStarted] = useState(false);
   const ref = useRef(null);
 
@@ -64,15 +66,15 @@ export default function AnimatedStats({ isDark }) {
   }, []);
 
   const stats = [
-    { value: "8+", label: "Projects" },
+    { value: "9+", label: "Projects" },
     { value: "4yr", label: "Retail Data" },
-    { value: "7+", label: "Certifications" }
+    { value: "8+", label: "Certifications" }
   ];
 
   return (
     <div ref={ref} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", maxWidth: "32rem", marginTop: "3.5rem" }}>
       {stats.map((stat, i) => (
-        <StatItem key={i} value={stat.value} label={stat.label} isDark={isDark} start={started} />
+        <StatItem key={i} value={stat.value} label={stat.label} start={started} />
       ))}
     </div>
   );

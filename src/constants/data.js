@@ -1,20 +1,22 @@
-﻿import {
+import {
   Code2, Database, Brain, Terminal, Layers, Zap, Sparkles, Rocket,
   BarChart3, FileSpreadsheet, GitBranch, Users, Target, Lightbulb,
-  Compass, TrendingUp, BookOpen
+  Compass, TrendingUp, BookOpen, FileText
 } from "lucide-react";
+
+const BASE = import.meta.env.BASE_URL;
 
 export const PROFILE = {
   name: "Mohamed",
   fullName: "Mohamed Nasir Mohamed",
   role: "Data Science Student & AI Systems Builder",
-  location: "Colombo, Sri Lanka",
+  location: "Mount Lavinia, Sri Lanka",
   email: "muhammed01n@gmail.com",
-  phone: "0774778482",
+  phone: "+94 77 477 8482",
   linkedin: "https://www.linkedin.com/in/muhamadns44",
   github: "https://github.com/muhamednas",
   bio: "Currently at KDU, bridging the gap between raw data and agentic automation. Building RAG pipelines, smart retail systems, and AI-driven solutions with a focus on real-world impact.",
-  photo: "/portfolio/profile.jpeg"
+  photo: `${BASE}profile.jpeg`
 };
 
 export const PROJECTS = [
@@ -28,14 +30,14 @@ export const PROJECTS = [
     accent: "violet"
   },
   {
-  name: "Early Churn Prediction - Telecom",
-  description: "ML model predicting customer churn for a telecom provider using classification algorithms with class imbalance handling. Research paper based on this project was selected for presentation at ADScAI 2026 — a peer-reviewed international conference.",
-  techStack: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
-  githubUrl: "https://github.com/muhamednas/Early-Churn-Prediction-Telecom",
-  category: "Machine Learning · Published Research",
-  type: "Group Project",
-  accent: "amber"
-},
+    name: "Early Churn Prediction - Telecom",
+    description: "ML model predicting customer churn for a telecom provider using classification algorithms with class imbalance handling. Research paper based on this project was selected for presentation at ADScAI 2026 — a peer-reviewed international conference.",
+    techStack: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
+    githubUrl: "https://github.com/muhamednas/Early-Churn-Prediction-Telecom",
+    category: "Machine Learning · Published Research",
+    type: "Group Project",
+    accent: "amber"
+  },
   {
     name: "PolicyAdapt AI",
     description: "AI-driven policy summarisation and scenario adaptation platform. Upload a policy document, get a structured TextRank summary, then generate audience-specific adapted drafts using LLaMA 3.1 via GroqCloud with compression metrics and full draft history.",
@@ -58,7 +60,7 @@ export const PROJECTS = [
     name: "CartConnect",
     description: "Smart supermarket cart with autonomous pathfinding to direct users to specific items via a tablet interface. Features an intelligent recommendation system and automated weight-based billing, reducing shopping time and enhancing the customer journey from entry to exit.",
     techStack: ["Arduino", "Python", "Streamlit"],
-    githubUrl: "#",
+    githubUrl: null,
     category: "Embedded AI System",
     type: "Group Project",
     accent: "pink"
@@ -94,7 +96,7 @@ export const PROJECTS = [
     name: "SQL & Power BI: Government Analytics",
     description: "Two-part analytics project covering Australian government datasets and Canadian immigration data. Designed relational databases, complex T-SQL queries, and Power BI dashboards identifying key policy trends.",
     techStack: ["SQL Server", "T-SQL", "Power BI", "DAX"],
-    githubUrl: "#",
+    githubUrl: null,
     category: "Business Analytics",
     type: "Group Project",
     accent: "cyan"
@@ -105,7 +107,7 @@ export const EXPERIENCE = [
   {
     role: "Sales Inventory Assistant (Part-Time)",
     company: "Barakath Stores (Pvt) Ltd.",
-    period: "2022 - Present",
+    period: "Mar 2022 – Present",
     location: "Pilimathalawa, Sri Lanka",
     highlights: [
       "Tracked stock levels and analyzed sales trends to optimize product availability",
@@ -116,7 +118,7 @@ export const EXPERIENCE = [
   {
     role: "Sales Operations Associate (Part-Time)",
     company: "ACM Hardware (Pvt) Ltd.",
-    period: "2024 - Present",
+    period: "Jan 2024 – Present",
     location: "Mount Lavinia, Sri Lanka",
     highlights: [
       "Assisted in retail sales and customer engagement for a hardware products business serving diverse client segments",
@@ -130,8 +132,17 @@ export const EDUCATION = [
   {
     degree: "BSc in Applied Data Science Communication",
     institution: "General Sir John Kotelawala Defence University (KDU)",
-    period: "Feb 2024 - Feb 2027",
+    period: "Feb 2024 – Feb 2027",
     focus: "Computer Science · Data Science · Machine Learning"
+  }
+];
+
+export const PUBLICATIONS = [
+  {
+    title: "Early Churn Prediction in Telecom Using Machine Learning",
+    venue: "ADScAI 2026 — International Conference on Applied Data Science & AI",
+    type: "Conference Paper · Selected for Presentation",
+    year: "2026"
   }
 ];
 
@@ -140,49 +151,49 @@ export const CERTIFICATIONS = [
     name: "Champions - Data Odyssey Inter Faculty Exhibition Competition 2025",
     issuer: "AI and Data Science Club, KDU",
     category: "Achievement",
-    image: "/portfolio/certs/data_odyssey_champions.jpeg"
+    image: `${BASE}certs/data_odyssey_champions.jpeg`
   },
   {
     name: "What is Data Science?",
     issuer: "IBM / Coursera",
     category: "Foundations",
-    image: "/portfolio/certs/what-is-data-science.jpeg"
+    image: `${BASE}certs/what-is-data-science.jpeg`
   },
   {
     name: "Foundations of Data Science",
     issuer: "Google",
     category: "Foundations",
-    image: "/portfolio/certs/foundations-of-data-science.jpeg"
+    image: `${BASE}certs/foundations-of-data-science.jpeg`
   },
   {
     name: "Foundations: Data, Data, Everywhere",
     issuer: "Google",
     category: "Foundations",
-    image: "/portfolio/certs/data-data-everywhere.jpeg"
+    image: `${BASE}certs/data-data-everywhere.jpeg`
   },
   {
     name: "Develop Generative AI Applications: Get Started",
     issuer: "IBM",
     category: "Generative AI",
-    image: "/portfolio/certs/genai-get-started.jpeg"
+    image: `${BASE}certs/genai-get-started.jpeg`
   },
   {
     name: "Start Writing Prompts like a Pro",
     issuer: "Udemy",
     category: "Prompt Engineering",
-    image: "/portfolio/certs/prompts-like-a-pro.jpeg"
+    image: `${BASE}certs/prompts-like-a-pro.jpeg`
   },
   {
     name: "Generative AI for Web Developers",
     issuer: "LinkedIn Learning",
     category: "AI Engineering",
-    image: "/portfolio/certs/genai-web-devs.jpeg"
+    image: `${BASE}certs/genai-web-devs.jpeg`
   },
   {
     name: "LangChain for LLM Application Development",
     issuer: "DeepLearning.AI",
     category: "AI Engineering",
-    image: "/portfolio/certs/langchain-llm.jpeg"
+    image: null
   },
 ];
 
@@ -191,27 +202,27 @@ export const SKILL_GROUPS = [
     title: "Technical",
     description: "Tools I build with daily.",
     skills: [
-      { name: "Python", icon: Code2 },
-      { name: "R", icon: Code2 },
-      { name: "SQL", icon: Database },
-      { name: "FastAPI", icon: Zap },
-      { name: "React", icon: Layers },
-      { name: "PostgreSQL", icon: Database },
-      { name: "LangChain", icon: Brain },
-      { name: "Streamlit", icon: Terminal },
-      { name: "Machine Learning", icon: Sparkles },
-      { name: "RAG Systems", icon: Rocket },
+      { name: "Python",          icon: Code2,    featured: true,  tagline: "Primary language"    },
+      { name: "LangChain",       icon: Brain,    featured: true,  tagline: "LLM orchestration"   },
+      { name: "RAG Systems",     icon: Rocket,   featured: true,  tagline: "Core expertise"      },
+      { name: "R",               icon: Code2    },
+      { name: "SQL",             icon: Database },
+      { name: "FastAPI",         icon: Zap      },
+      { name: "React",           icon: Layers   },
+      { name: "PostgreSQL",      icon: Database },
+      { name: "Streamlit",       icon: Terminal },
+      { name: "Machine Learning",icon: Sparkles },
     ]
   },
   {
     title: "Business & Analytics",
     description: "Turning data into decisions.",
     skills: [
-      { name: "Power BI", icon: BarChart3 },
-      { name: "Dashboard Design", icon: BarChart3 },
-      { name: "Business Analysis", icon: TrendingUp },
-      { name: "Data Storytelling", icon: FileSpreadsheet },
-      { name: "KPI Tracking", icon: Target },
+      { name: "Power BI",         icon: BarChart3,     featured: true, tagline: "Interactive dashboards" },
+      { name: "Data Storytelling",icon: Sparkles,      featured: true, tagline: "Insight to narrative"   },
+      { name: "Business Analysis",icon: TrendingUp  },
+      { name: "Dashboard Design", icon: BarChart3   },
+      { name: "KPI Tracking",     icon: Target      },
       { name: "Excel (Advanced)", icon: FileSpreadsheet },
     ]
   },
@@ -219,12 +230,12 @@ export const SKILL_GROUPS = [
     title: "Professional",
     description: "How I work with people.",
     skills: [
-      { name: "Team Leadership", icon: Users },
-      { name: "Teamwork", icon: Users },
-      { name: "Problem Solving", icon: Lightbulb },
-      { name: "Organization", icon: Compass },
-      { name: "Adaptability", icon: GitBranch },
-      { name: "Continuous Learning", icon: BookOpen },
+      { name: "Problem Solving",    icon: Lightbulb, featured: true, tagline: "Engineering mindset"  },
+      { name: "Research & Writing", icon: FileText,  featured: true, tagline: "Published research"   },
+      { name: "Team Leadership",    icon: Users    },
+      { name: "Organization",       icon: Compass  },
+      { name: "Adaptability",       icon: GitBranch },
+      { name: "Continuous Learning",icon: BookOpen  },
     ]
   },
 ];

@@ -66,7 +66,7 @@ export default function AnimatedStats() {
   }, []);
 
   const stats = [
-    { value: "9+", label: "Projects" },
+    { value: "10+", label: "Projects" },
     { value: "4yr", label: "Retail Data" },
     { value: "8+", label: "Certifications" }
   ];

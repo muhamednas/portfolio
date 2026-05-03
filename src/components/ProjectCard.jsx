@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
-import { Github as GithubIcon, ArrowUpRight, Users } from "lucide-react";
+import { Github as GithubIcon, ArrowUpRight, Users, Clock } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 export default function ProjectCard({ project, index }) {
   const { isDark } = useTheme();
   const accents = {
-    violet: "from-violet-500 to-fuchsia-500",
-    cyan: "from-cyan-400 to-blue-500",
-    pink: "from-pink-500 to-rose-500",
-    amber: "from-amber-400 to-orange-500",
+    violet:  "from-violet-500 to-fuchsia-500",
+    cyan:    "from-cyan-400 to-blue-500",
+    pink:    "from-pink-500 to-rose-500",
+    amber:   "from-amber-400 to-orange-500",
     emerald: "from-emerald-400 to-teal-500"
   };
-  const accent = accents[project.accent] || accents.violet;
-  const isGroup = project.type === "Group Project";
-  const hasGithub = project.githubUrl && project.githubUrl !== "#";
+  const accent      = accents[project.accent] || accents.violet;
+  const isGroup     = project.type === "Group Project";
+  const hasGithub   = project.githubUrl && project.githubUrl !== "#";
+  const isPlaceholder = project.githubPlaceholder && !hasGithub;
 
   return (
     <motion.article
@@ -27,25 +28,58 @@ export default function ProjectCard({ project, index }) {
       <div className="p-7">
         <div className="flex items-center justify-between gap-3 mb-5">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className={"text-xs font-bold uppercase px-3 py-1 rounded-full " + (isDark ? "bg-white/5 text-slate-300" : "bg-slate-100 text-slate-600")}>{project.category}</span>
-            {isGroup && (<span className={"text-xs font-bold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 " + (isDark ? "bg-emerald-500/10 text-emerald-300" : "bg-emerald-50 text-emerald-700")}><Users size={10} /> Group</span>)}
+            <span className={"text-xs font-bold uppercase px-3 py-1 rounded-full " + (isDark ? "bg-white/5 text-slate-300" : "bg-slate-100 text-slate-600")}>
+              {project.category}
+            </span>
+            {isGroup && (
+              <span className={"text-xs font-bold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 " + (isDark ? "bg-emerald-500/10 text-emerald-300" : "bg-emerald-50 text-emerald-700")}>
+                <Users size={10} /> Group
+              </span>
+            )}
           </div>
-          {hasGithub && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`GitHub repo for ${project.name}`} className={"w-10 h-10 rounded-full flex items-center justify-center " + (isDark ? "bg-white/5 text-white hover:bg-white/10" : "bg-slate-100 text-slate-900 hover:bg-slate-200")}>
+
+          {/* GitHub button or placeholder badge */}
+          {hasGithub ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`GitHub repo for ${project.name}`}
+              className={"w-10 h-10 rounded-full flex items-center justify-center transition-colors " + (isDark ? "bg-white/5 text-white hover:bg-white/10" : "bg-slate-100 text-slate-900 hover:bg-slate-200")}
+            >
               <GithubIcon size={16} />
             </a>
-          )}
+          ) : isPlaceholder ? (
+            <span className={"inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase border " + (isDark ? "border-white/10 text-slate-500 bg-white/[0.03]" : "border-slate-200 text-slate-400 bg-slate-50")}>
+              <Clock size={10} /> Repo soon
+            </span>
+          ) : null}
         </div>
+
         <h3 className={"text-3xl font-black mb-3 " + (isDark ? "text-white" : "text-slate-900")}>{project.name}</h3>
         <p className={"text-sm mb-6 leading-relaxed " + (isDark ? "text-slate-400" : "text-slate-600")}>{project.description}</p>
+
         <div className="flex flex-wrap gap-2 mb-6">
-          {project.techStack.map((tech) => (<span key={tech} className={"text-xs font-semibold px-3 py-1 rounded-lg border " + (isDark ? "bg-slate-900/50 border-white/10 text-slate-300" : "bg-slate-50 border-slate-200 text-slate-700")}>{tech}</span>))}
+          {project.techStack.map((tech) => (
+            <span key={tech} className={"text-xs font-semibold px-3 py-1 rounded-lg border " + (isDark ? "bg-slate-900/50 border-white/10 text-slate-300" : "bg-slate-50 border-slate-200 text-slate-700")}>
+              {tech}
+            </span>
+          ))}
         </div>
-        {hasGithub && (
-          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={"inline-flex items-center gap-1.5 text-sm font-bold " + (isDark ? "text-violet-300" : "text-violet-600")}>
-            View code <ArrowUpRight size={14} />
-          </a>
-        )}
+
+        {/* Footer row */}
+        <div className="flex items-center gap-4">
+          {hasGithub && (
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={"inline-flex items-center gap-1.5 text-sm font-bold " + (isDark ? "text-violet-300 hover:text-violet-200" : "text-violet-600 hover:text-violet-700")}>
+              View code <ArrowUpRight size={14} />
+            </a>
+          )}
+          {isPlaceholder && (
+            <span className={"inline-flex items-center gap-1.5 text-sm font-medium " + (isDark ? "text-slate-500" : "text-slate-400")}>
+              <GithubIcon size={13} /> GitHub link coming soon
+            </span>
+          )}
+        </div>
       </div>
     </motion.article>
   );

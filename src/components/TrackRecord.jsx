@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, BookOpen, Award } from "lucide-react";
+import { GraduationCap, Briefcase, BookOpen, Award, Github, Clock } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { EDUCATION, EXPERIENCE, PUBLICATIONS } from "../constants/data";
 import SectionHeader from "./SectionHeader";
@@ -76,10 +76,28 @@ export default function TrackRecord() {
         <div className={date + " mb-1"}>{pub.year}</div>
         <h3 className={"text-base mb-1 " + head}>{pub.title}</h3>
         <div className={accent + " mb-3"}>{pub.venue}</div>
-        <span className={"text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 " +
-          (isDark ? "bg-emerald-500/10 text-emerald-300" : "bg-emerald-50 text-emerald-700")}>
-          <Award size={10} />{pub.type}
-        </span>
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className={"text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 " +
+            (isDark ? "bg-emerald-500/10 text-emerald-300" : "bg-emerald-50 text-emerald-700")}>
+            <Award size={10} />{pub.type}
+          </span>
+          {pub.githubUrl ? (
+            <a
+              href={pub.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={"inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full border transition-colors " +
+                (isDark ? "border-white/10 text-slate-300 hover:text-white hover:border-white/20" : "border-slate-200 text-slate-600 hover:text-slate-900")}
+            >
+              <Github size={10} /> View repo
+            </a>
+          ) : (
+            <span className={"inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border " +
+              (isDark ? "border-white/10 text-slate-600" : "border-slate-200 text-slate-400")}>
+              <Clock size={10} /> GitHub repo coming soon
+            </span>
+          )}
+        </div>
       </div>
     )),
   ];

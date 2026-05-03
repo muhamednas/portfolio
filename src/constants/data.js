@@ -30,11 +30,21 @@ export const PROJECTS = [
     accent: "violet"
   },
   {
+    name: "USD/LKR Exchange Rate Prediction",
+    description: "CRISP-DM pipeline forecasting the USD/LKR exchange rate using 16 years of Central Bank of Sri Lanka data (3,346 daily observations). Engineered 14 features — moving averages, volatility windows, and lag features — then compared Random Forest, XGBoost, Gradient Boosting, and a weighted ensemble. XGBoost achieved MAPE 0.838% and R² 0.904, beating the 2% industry benchmark. Includes a 30-day recursive forecast with 95% confidence intervals. Presented as a poster at ADScAI 2026, University of Moratuwa.",
+    techStack: ["Python", "XGBoost", "Scikit-learn", "Pandas", "CRISP-DM"],
+    githubUrl: null,
+    category: "Machine Learning · Published Research",
+    type: "Group Project",
+    accent: "cyan",
+    githubPlaceholder: true
+  },
+  {
     name: "Early Churn Prediction - Telecom",
-    description: "ML model predicting customer churn for a telecom provider using classification algorithms with class imbalance handling. Research paper based on this project was selected for presentation at ADScAI 2026 — a peer-reviewed international conference.",
+    description: "ML classification model predicting customer churn for a telecom provider. Addressed class imbalance with SMOTE and compared Logistic Regression, Decision Tree, Random Forest, and XGBoost. Identified top churn drivers including contract type, tenure, and monthly charges.",
     techStack: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
     githubUrl: "https://github.com/muhamednas/Early-Churn-Prediction-Telecom",
-    category: "Machine Learning · Published Research",
+    category: "Machine Learning",
     type: "Group Project",
     accent: "amber"
   },
@@ -139,10 +149,11 @@ export const EDUCATION = [
 
 export const PUBLICATIONS = [
   {
-    title: "Early Churn Prediction in Telecom Using Machine Learning",
-    venue: "ADScAI 2026 — International Conference on Applied Data Science & AI",
-    type: "Conference Paper · Selected for Presentation",
-    year: "2026"
+    title: "Predicting USD/LKR Exchange Rate: A CRISP-DM Machine Learning Approach",
+    venue: "ADScAI 2026 — Applied Data Science & AI Conference, University of Moratuwa",
+    type: "Poster Presentation",
+    year: "2026",
+    githubUrl: null
   }
 ];
 

@@ -5,7 +5,7 @@ import { useTheme } from "../context/ThemeContext";
 const lines = [
   { type: "cmd", text: "analyze candidate.json"  },
   { type: "ok",  text: "Skills loaded: 18"       },
-  { type: "ok",  text: "Projects shipped: 9"     },
+  { type: "ok",  text: "Projects shipped: 10"    },
   { type: "ok",  text: "Published @ ADScAI 2026" },
   { type: "ok",  text: "Available for hire"      },
 ];
